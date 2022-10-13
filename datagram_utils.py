@@ -1,5 +1,18 @@
+import pgpy
+from pgpy.constants import *
+from random import randint
+
 
 publickey = None
+
+ori = None
+sh = None
+
+header = {
+    "orientation": ori,
+    "shuffle": sh,
+    "ciphertext": "4spk63eAxsnI/B5ErUNSCJwN+9X0Eclmqck/zy3o7Iu/aRxPyxUytjUrI0rD2e4="
+}
 
 
 def desencapsulate(datagram: header):

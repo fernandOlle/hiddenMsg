@@ -4,13 +4,6 @@ import threading
 from datagram_utils import *
 
 
-header = {
-    "orientation": ori,
-    "shuffle": sh,
-    "ciphertext": "4spk63eAxsnI/B5ErUNSCJwN+9X0Eclmqck/zy3o7Iu/aRxPyxUytjUrI0rD2e4="
-}
-
-
 def connect(s):
     while True:
         r_msg = s.recv(1024)
