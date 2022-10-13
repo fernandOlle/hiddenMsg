@@ -1,9 +1,11 @@
-import pgpy
-from pgpy.constants import *
+from rsa import *
 from random import randint
 
 
-publickey = None
+pub_key = None
+priv_key = None
+
+their_pub_key = None
 
 ori = None
 sh = None
@@ -56,8 +58,10 @@ def encapsulate(string):
 
 def handshake(s):
     # gera criptografia
-    key = pgpy.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 1024)
-    key = encapsulate(key)
+    pub_key, priv_key = rsa.newKeys(512)
+
+    key = encapsulate(pub_key)
     s.sendall(key)
-    publickey = s.recv(1024)
-    publickey = desencapsulate(publickey)
+    their_pub_key = s.recv(1024)
+    their_pub_key = desencapsulate(their_pub_key)
+    print(their_pub_key + '\n' + pub_key + '\n' + priv_key)

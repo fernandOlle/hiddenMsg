@@ -2,7 +2,6 @@ import sys
 import socket
 import threading
 from datagram_utils import *
-from pgpy.constants import *
 
 
 def connect(s):

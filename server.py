@@ -1,6 +1,5 @@
 import threading
 import socket
-from pgpy.constants import *
 from random import randint
 from datagram_utils import *
 
