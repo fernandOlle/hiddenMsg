@@ -1,8 +1,8 @@
 import threading
 import socket
-import pgpy
 from pgpy.constants import *
 from random import randint
+from datagram_utils import *
 
 
 def datagram():
@@ -32,18 +32,6 @@ def sendMsg(conn):
             pass
         else:
             conn.sendall(send_msg)
-
-
-def encapsulate(s):
-    pass
-
-
-def handshake(s):
-    # gera criptografia
-    key = pgpy.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 1024)
-    key = encapsulate(key)
-    s.sendall(key)
-    publickey = s.recv(1024)
 
 
 if __name__ == '__main__':

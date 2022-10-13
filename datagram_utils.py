@@ -56,7 +56,7 @@ def encapsulate(string):
 
 def handshake(s):
     # gera criptografia
-    key = pgpy.PGPKey.new(pgpy.PubKeyAlgorithm.RSAEncryptOrSign, 1024)
+    key = pgpy.PGPKey.new(PubKeyAlgorithm.RSAEncryptOrSign, 1024)
     key = encapsulate(key)
     s.sendall(key)
     publickey = s.recv(1024)
