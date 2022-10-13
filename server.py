@@ -49,7 +49,7 @@ def handshake(s):
 if __name__ == '__main__':
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    s.bind(('', 800))
+    s.bind(('', 9090))
     s.listen()
     (conn, addr) = s.accept()
     handshake(s)
